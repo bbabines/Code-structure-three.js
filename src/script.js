@@ -14,14 +14,36 @@ class Robot {
 	}
 }
 
+// This class builds upon the previous class Robot. Do that by using the "extends" syntax
+class FlyingRobot extends Robot {
+	constructor(name, legs) {
+		// To override the constructor you need to call "super()".
+		super(name, legs);
+	}
+
+	sayHi() {
+		console.log("something else");
+	}
+
+	takeOff() {
+		console.log(`Have a good flight ${this.name}`);
+	}
+
+	land() {
+		console.log(`Welcome back ${this.name}`);
+	}
+}
+
 const wallE = new Robot("WallE", 0);
-const ultron = new Robot("ultron", 2);
-const astroBoy = new Robot("astroBoy", 2);
+const ultron = new FlyingRobot("ultron", 2);
+const astroBoy = new FlyingRobot("astroBoy", 2);
+
+astroBoy.sayHi();
+astroBoy.takeOff();
+astroBoy.land();
 
 wallE.sayHi();
 ultron.sayHi();
-
-console.log(wallE.legs);
 
 // import './style.css'
 // import * as THREE from 'three'
